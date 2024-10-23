@@ -12,7 +12,7 @@ $fname = get_the_author_meta('first_name');
 $lname = get_the_author_meta('last_name');
 ?>
 
-<div class="d-flex align-content-center gap-5 m-0">
+<!-- <div class="d-flex align-content-center gap-5 m-0">
     <p class="text-dark btn btn-warning">Posted By <?php echo $fname. ' ' . $lname?></p>
     
     <?php 
@@ -23,7 +23,18 @@ foreach($tags as $tag):?>
 </a>
 
 <?php endforeach; ?>
-</div>
+</div> -->
+    
+    <?php 
+$categories = get_the_category();
+foreach($categories as $cat):?>
+<a href="<?php echo $cat->name;?>" class="btn btn-primary">
+<?php echo $tag->name;?>
+</a>
+<?php endforeach; ?>
+
+<?php comments_template(); ?>
+
 
 <?php endwhile; else: endif;?>
 
