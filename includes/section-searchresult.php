@@ -16,5 +16,10 @@ if(have_posts()) : while(have_posts()) : the_post(); ?>
         </div>  
 </div>
 </div>    
-<?php endwhile; else: endif;?>
+<?php endwhile; else:?>
+    <div class="d-flex mx-auto justify-content-center align-content-center">
+    <!-- <img src="path/to/search.jpg" alt=""> -->
+        <h3>There Are No Search For  <?php echo get_search_query();?></h3>
+    </div>
+<?php endif;?>
 

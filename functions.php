@@ -35,24 +35,62 @@ register_nav_menus(array(
 	add_image_size('blog-small', 300, 200, true);
 	
 function my_sidebars(){
+
 	register_sidebar(array(
 		'name' => 'Page Sidebar',
 		'id' => 'page-sidebar',
-		'before-title' => '<h4 class="widget-title">',
-		'after-title' => '</h4>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
 
 	));
 
 	register_sidebar(array(
 		'name' => 'Blog Sidebar',
 		'id' => 'blog-sidebar',
-		'before-title' => '<h4 class="widget-title">',
-		'after-title' => '</h4>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
 
 	));
 }
 
 add_action('widgets_init', 'my_sidebars');
+
+function my_first_post_type(){
+	$args = array(
+		'labels' => array(
+			'name' => 'Cars',
+			'Singular_name' => 'Car',
+		),
+		// 'hierarchical' => false,
+		'public' => true,
+		'has_archive' => true,
+		'menu_icon' => 'dashicons-car',
+		'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
+		//'rewrite' => array('slug' => 'cars')
+	);
+	register_post_type('cars', $args);
+}
+add_action('init','my_first_post_type');
+
+
+
+function my_first_taxonomy(){
+	$args = array(
+		'labels' => array(
+			'name' => 'Brands',
+			'singular_name' => 'Brand',
+		),
+		'public' => true,
+		'hierarchical' => true,
+		// 'has_archive' => true,
+		// 'menu_icon' => 'dashicons-car',
+		// 'supports' => array('title', 'editor', 'thumbnail'),
+);
+
+	register_taxonomy('brands', array('cars'), $args);
+}
+
+add_action('init','my_first_taxonomy');
 ?>
 
 
