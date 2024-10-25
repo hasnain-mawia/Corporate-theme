@@ -5,7 +5,11 @@ if(have_posts()) : while(have_posts()) : the_post(); ?>
 <div class="card-body d-flex justify-content-center align-item-center gap-4">
 <div class="blog-content">
     <?php if(has_post_thumbnail()):?>
-        <img src="<?php the_post_thumbnail_url('blog-large');?>" alt="<?php the_title();?>" class="img-fluid img-thumbnail">
+      <div class="gallery">
+        <a href="<?php the_post_thumbnail_url('blog-large');?>">
+      <img src="<?php the_post_thumbnail_url('blog-large');?>" alt="<?php the_title();?>" class="img-fluid img-thumbnail">
+        </a>
+      </div>
         
         <?php endif; ?>
     </div>

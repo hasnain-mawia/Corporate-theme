@@ -7,8 +7,11 @@
     <h2><?php the_title(); ?></h2>
     <div class="row">
     <div class="col-lg-6">
+    <div class="gallery">
+    <a href="<?php the_post_thumbnail_url('blog-large');?>">
     <img src="<?php the_post_thumbnail_url('blog-large');?>" alt="<?php the_title();?>" class="img-fluid mb-4 img-thumbnail">
-        
+    </a>
+    </div>
     </div>
     <?php endif; ?>
 
